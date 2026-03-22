@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import { services } from '../../../data/services'
+---
+
+<BaseLayout title="Фотостудія Focus">
+
+  <h1>Копия RU</h1>  
+
+
+    {services.map(service => (
+        <a href={`/ua/services/${service.id}/`}>{service.title.ru}</a><br>
+    ))}
+
+
+  
+</BaseLayout>
+
+

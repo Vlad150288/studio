@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { servicess } from "../../../data/services";
+
+const lang = "ua";
+
+export function getStaticPaths() {
+  const paths = servicess.documents.map(item => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+
+  // console.log('STATIC PATHS:', paths);
+  return paths;
+}
+
+
+const { item } = Astro.props;
+// console.log(item)
+// console.log(Astro.props)
+
+---
+
+<BaseLayout title={`${item.title[lang]} — Focus`}>
+  <pre>
+  {JSON.stringify(item, null, 2)}
+</pre>
+
+  <article class="service">
+    <h1>{item.title[lang]}</h1>
+    <img src={item.image} alt={item.title[lang]} width="720" height="480" />
+
+    <p>{item.desc[lang]}</p>
+
+    <div class="priceBox">
+      <p>{item.prices.standard.ua}: <b>{item.prices.standard.value} грн</b></p>
+      <p>{item.prices.express.ua}: <b>{item.prices.express.value} грн</b></p>
+    </div>
+
+    <p><a href="/ua/" data-astro-prefetch>← Назад до послуг</a></p>
+  </article>
+</BaseLayout>

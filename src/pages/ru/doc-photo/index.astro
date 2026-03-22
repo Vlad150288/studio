@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { servicess } from "../../../data/services";
+
+const lang = "ru";
+const docs = servicess.documents;
+
+const lead =
+  "Срочное фото на документы за 10–15 минут. Вы сможете получить фото на паспорт, права, шенгенскую визу, грин-карту США (green card USA), детский биометрический паспорт и другие документы — в цветном или чёрно-белом варианте, на матовой или глянцевой фотобумаге, в соответствии с вашими пожеланиями или требованиями инстанции. Количество изображений на одном блоке зависит от размера необходимой фотографии. Ниже мы приводим наиболее востребованные варианты.";
+---
+
+<BaseLayout title="Фото на документи — Focus">
+
+
+
+
+  <div class="doc-page">
+    <section class="doc-info">
+
+  <div class="doc-header">
+    <h1 class="heroTitle">ФОТО НА ВСЕ ВИДЫ ДОКУМЕНТОВ</h1>
+
+    <div class="heroRule"></div>
+
+    <p class="heroLead">{lead}</p>
+  </div>
+
+ 
+
+  <h2 class="doc-bloc-title">ПОПУЛЯРНЫЕ РАЗМЕРЫ ФОТО</h2>
+
+  <div class="popular-cont">
+    <div class="doc-title">{docs[0].title[lang]}</div>
+
+    <div class="doc-inner">    
+      <div class="docs-list">
+        {docs.map((item, index) => (
+          <span  class={`doc-button ${index === 0 ? 'doc-active' : ''}`}
+          data-id={item.id}
+          data-lang={lang}
+        >{item.title[lang]}</span>
+        ))}
+      </div>
+
+      <div class="doc-photo-cont" data-title={docs[0].title[lang]}>                 
+
+          <div class="doc-image">            
+            <div class="measure measure-top">
+              <span class="measure-text">{docs[0].size.top}</span>
+            </div>            
+            <div class="measure measure-left">
+              <span class="measure-text">{docs[0].size.left}</span>
+            </div>            
+            <img src={docs[0].image} alt={docs[0].title[lang]} width="240" height="300" loading="lazy"/>
+          </div>
+
+          <div class="doc-desc">            
+            <div>{docs[0].desc[lang]}</div><hr>   
+            <div>{docs[0].prices.standard[lang]} - {docs[0].prices.standard.value}грн</div> 
+            <div>{docs[0].prices.express[lang]} - {docs[0].prices.express.value}грн</div> 
+          </div> 
+      </div>
+    </div>
+
+    <script
+      type="application/json"
+      id="docs-data"
+      set:html={JSON.stringify(docs)}
+    ></script>
+  </div>  
+</sectiob>
+
+
+   <!-- SUIT / UNIFORM -->
+  <section class="doc-costume">
+    <h2 class="doc-bloc-title">ПОДСТАВИМ КОСТЮМ ИЛИ ФОРМУ</h2>
+    <p class="blockSub">Подставим костюм, военную или полицейскую форму!</p>
+
+    <div class="box">
+      <div class="panelRow">
+        <!-- Заглушки: поменяй картинки на свои -->
+        <figure class="baCard">
+          <img class="baImg" src="/images/55.png" alt="До" width="140" height="200" />
+        </figure>
+
+        <div class="arrow" aria-hidden="true">➜</div>
+
+        <figure class="baCard">
+          <img class="baImg" src="/images/55.png" alt="Після — костюм" width="140" height="200" />
+          <figcaption class="baCap">Костюм</figcaption>
+        </figure>
+
+        <figure class="baCard">
+          <img class="baImg" src="/images/55.png" alt="Після — військова форма" width="140" height="200" />
+          <figcaption class="baCap">Военная форма</figcaption>
+        </figure>
+
+        <figure class="baCard">
+          <img class="baImg" src="/images/55.png" alt="Після — поліція" width="140" height="200" />
+          <figcaption class="baCap">Полиция</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</BaseLayout>

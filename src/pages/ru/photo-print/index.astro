@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import { services } from '../../../data/services'
+---
+
+<BaseLayout title="Фотостудія Focus">
+
+  <h1>Печать RU</h1>  
+
+
+    <!-- {services.map(service => (
+        <a href={`/ua/services/${service.id}/`}>{service.title.ru}</a><br>
+    ))} -->
+
+    {services.map(service => (
+        <p>{service.title.ru} - {service.price.ru}</p>
+    ))}
+
+    {/* foreach (let service of services) {
+        <div>{service.title.ua}</div>
+    } */}
+
+
+  
+</BaseLayout>
+
+

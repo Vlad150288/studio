@@ -1,6 +1,6 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { servicess } from "../data/services";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { servicess } from "../../data/services";
 
 const lang = "ua";
 const docs = servicess.documents;
@@ -13,7 +13,7 @@ const lead =
   <div class="doc-page">
     <!-- DOC PHOTO (preview) -->
     <section class="doc-info">        
-          <!-- <div class="doc-row" data-title={docs[0].title[lang]}> -->
+          <div class="doc-row" data-title={docs['ua-passport'].title[lang]}>
             <div class="doc-main-desc">
               <div>
               <h2 class="service-title">ФОТО НА ДОКУМЕНТИ</h2>
@@ -40,9 +40,9 @@ const lead =
               </a>
             </div>
 
-            <!-- <div class="doc-image">
-              <img src="/images/111.jpg" alt={docs[0].title[lang]}  height="345" loading="lazy" />
-            </div> -->
+            <div class="doc-row-media">
+              <img src="/images/111.jpg" alt={docs['ua-passport'].title[lang]}  height="345" loading="lazy" />
+            </div>
           </div>        
 
       <script type="application/json" id="docs-data" set:html={JSON.stringify(docs)}></script>
@@ -120,7 +120,7 @@ const lead =
       </a>
     </div>
 
-    <div class="print-img">
+    <div class="doc-row-media">
       <img src="/images/print.jpg" alt="Друк фотографій" height="345" loading="lazy" />
     </div>
   </div>

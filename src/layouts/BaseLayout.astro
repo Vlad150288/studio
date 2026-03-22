@@ -1,0 +1,259 @@
+---
+import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+
+const { title = "Фотостудія Focus" } = Astro.props;
+
+const pathname = Astro.url.pathname;
+
+// language detection by URL prefix
+const isRu = pathname === "/ru/" || pathname.startsWith("/ru/");
+const langPrefix = isRu ? "/ru" : "/ua";
+
+// keep current page when switching languages
+const tail = isRu ? (pathname.replace(/^\/ru/, "") || "/") : (pathname === "/" ? "/" : (pathname.replace(/^\/ua/, "") || "/"));
+const uaHref = "/ua" + tail;
+const ruHref = "/ru" + tail;
+
+const htmlLang = isRu ? "ru" : "ua";
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+
+    <ViewTransitions />
+    <script src="/app.js" defer></script>
+  </head>
+
+  <body class="site-wrap">
+
+       <header class="site-header">
+          <section class="site-info">
+            <div class="site-brand">
+              <a href={`${langPrefix}/`}>
+                <img src="/images/logo.png" alt="Logo" height="25" />
+              </a>
+            </div>
+
+            <div class="site-info__item site-info__item--phone">
+              <a href="tel:+380XXXXXXXXX" class="site-info__value">+38 (0XX) XXX-XX-XX</a>
+            </div>
+
+            <div class="site-info__item site-info__item--address">
+              <span class="site-info__value">
+                {isRu ? "Кривой Рог, Соборности 39" : "Кривий Ріг, Соборності 39"}
+              </span>
+            </div>
+
+            <div class="site-info__item site-info__item--time">
+              <span class="site-info__label">{isRu ? "График:" : "Графік:"}</span>
+              <span class="site-info__value">{isRu ? "Пн–Сб 9:00–18:00" : "Пн–Сб 9:00–18:00"}</span>
+            </div>
+
+            <div class="site-lang">
+              <a
+                href={uaHref}
+                class={`site-lang__btn ${!isRu ? "site-lang__btn--active" : ""}`}
+                data-astro-prefetch
+              >
+                UA
+              </a>
+
+              <a
+                href={ruHref}
+                class={`site-lang__btn ${isRu ? "site-lang__btn--active" : ""}`}
+                data-astro-prefetch
+              >
+                RU
+              </a>
+            </div>
+
+            <!-- кнопка бургера, на десктопе скрыта -->
+            <button
+              class="site-burger"
+              id="siteBurger"
+              type="button"
+              aria-label={isRu ? "Открыть меню" : "Відкрити меню"}
+              aria-expanded="false"
+              aria-controls="mobileMenu"
+            >
+              <span class="site-burger__line"></span>
+              <span class="site-burger__line"></span>
+              <span class="site-burger__line"></span>
+            </button>
+          </section>
+
+          <!-- обычное меню для десктопа -->
+          <nav class="site-nav site-nav--desktop">
+            <a
+              href={`${langPrefix}/`}
+              class={`site-nav__link ${pathname === langPrefix + "/" ? "site-nav__link--active" : ""}`}
+              data-astro-prefetch
+            >
+              {isRu ? "Главная" : "Головна"}
+            </a>
+
+            <a
+              href={`${langPrefix}/doc-photo/`}
+              class={`site-nav__link ${pathname === langPrefix + "/doc-photo/" ? "site-nav__link--active" : ""}`}
+              data-astro-prefetch
+            >
+              {isRu ? "Фото на документы" : "Фото на документи"}
+            </a>
+
+            <a
+              href={`${langPrefix}/restore/`}
+              class={`site-nav__link ${pathname === langPrefix + "/restore/" ? "site-nav__link--active" : ""}`}
+              data-astro-prefetch
+            >
+              {isRu ? "Реставрация фотографий" : "Реставрація фотографій"}
+            </a>
+
+            <a
+              href={`${langPrefix}/photo-print/`}
+              class={`site-nav__link ${pathname === langPrefix + "/photo-print/" ? "site-nav__link--active" : ""}`}
+              data-astro-prefetch
+            >
+              {isRu ? "Печать фотографий" : "Друк фотографій"}
+            </a>
+
+            <a
+              href={`${langPrefix}/contacts/`}
+              class={`site-nav__link ${pathname === langPrefix + "/contacts/" ? "site-nav__link--active" : ""}`}
+              data-astro-prefetch
+            >
+              {isRu ? "Контакты" : "Контакти"}
+            </a>
+          </nav>
+
+          <!-- мобильное выпадающее меню -->
+          <div class="site-mobile-menu" id="mobileMenu">
+            <nav class="site-mobile-menu__nav">
+              <a
+                href={`${langPrefix}/`}
+                class={`site-mobile-menu__link ${pathname === langPrefix + "/" ? "site-mobile-menu__link--active" : ""}`}
+                data-astro-prefetch
+              >
+                {isRu ? "Главная" : "Головна"}
+              </a>
+
+              <a
+                href={`${langPrefix}/doc-photo/`}
+                class={`site-mobile-menu__link ${pathname === langPrefix + "/doc-photo/" ? "site-mobile-menu__link--active" : ""}`}
+                data-astro-prefetch
+              >
+                {isRu ? "Фото на документы" : "Фото на документи"}
+              </a>
+
+              <a
+                href={`${langPrefix}/restore/`}
+                class={`site-mobile-menu__link ${pathname === langPrefix + "/restore/" ? "site-mobile-menu__link--active" : ""}`}
+                data-astro-prefetch
+              >
+                {isRu ? "Реставрация фотографий" : "Реставрація фотографій"}
+              </a>
+
+              <a
+                href={`${langPrefix}/photo-print/`}
+                class={`site-mobile-menu__link ${pathname === langPrefix + "/photo-print/" ? "site-mobile-menu__link--active" : ""}`}
+                data-astro-prefetch
+              >
+                {isRu ? "Печать фотографий" : "Друк фотографій"}
+              </a>
+
+              <a
+                href={`${langPrefix}/contacts/`}
+                class={`site-mobile-menu__link ${pathname === langPrefix + "/contacts/" ? "site-mobile-menu__link--active" : ""}`}
+                data-astro-prefetch
+              >
+                {isRu ? "Контакты" : "Контакти"}
+              </a>
+            </nav>
+
+          </div>
+        </header>
+
+    <main class="site-main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__main">
+
+        <div class="site-footer__contacts">
+          <div class="site-footer__item">
+            <span class="site-ico" aria-hidden="true">
+              <svg class="site-ico__svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.6 10.8c1.5 2.9 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C11 22 2 13 2 2c0-.6.4-1 1-1h4.4c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/>
+              </svg>
+            </span>
+
+            <span class="site-info__label">
+              {isRu ? "Телефон:" : "Телефон:"}
+            </span>
+            <span class="site-info__value footer-number__value">+38 (0XX) XXX-XX-XX</span>
+
+
+
+          </div>          
+
+            <div class="site-footer__item">              
+              <span class="site-ico" aria-hidden="true">
+                <svg class="site-ico__svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm1 11H7V7h2v4h4v2z"/>
+                </svg>
+              </span>
+              <span class="site-info__label">{isRu ? "График работы:" : "Графік роботи:"}</span>
+              <span class="site-info__value">{isRu ? "Пн–Сб 9:00–18:00" : "Пн–Сб 9:00–18:00"}</span>
+            </div>  
+
+        </div>
+
+        
+
+          <div class="site-footer__contacts">
+
+            <div class="site-footer__item">
+              <span class="site-ico" aria-hidden="true">
+                <svg class="site-ico__svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2c-3.9 0-7 3.1-7 7 0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/>
+                </svg>
+              </span>
+
+              <span class="site-info__value">{isRu ? "Кривой Рог, Соборности 39" : "Кривий Ріг, Соборності 39"}</span>
+            </div>
+
+            <div class="site-footer__item">
+              <span class="site-ico" aria-hidden="true">
+                <svg class="site-ico__svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14 3h7v7h-2V6.4l-9.3 9.3l-1.4-1.4L17.6 5H14V3z"/>
+                  <path d="M5 5h7v2H7v10h10v-5h2v7H5V5z"/>
+                </svg>
+              </span>
+
+              <span class="site-info__label">{isRu ? "На карте:" : "На мапі:"}</span>
+              <a
+                class="site-footer__map"
+                href="https://maps.app.goo.gl/hbcX6rQR7ZqYAYve7"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {isRu ? "Открыть Google Maps" : "Відкрити Google Maps"}
+              </a>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="site-footer__bottom">
+        <span class="site-footer__copy">© Focus Фотостудія {new Date().getFullYear()}</span>
+      </div>
+
+    </footer>
+  </body>
+</html>

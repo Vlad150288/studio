@@ -1,0 +1,213 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { servicess } from "../../../data/services";
+
+const lang = "ua";
+const docs = servicess.documents;
+---
+
+<BaseLayout title="Фотостудія Focus">
+
+
+    <!-- <header class="doc-header">
+      <h1 class="doc-header-title">КОНТАКТИ</h1>
+      <div class="doc-line"></div>
+      <p class="doc-lead how-rest__lead">
+        Приходьте в студію або телефонуйте — швидко підкажемо ціну, терміни та підберемо формат.
+      </p>
+    </header> -->
+    <div class="doc-page">
+
+        <section class="doc-info">
+          <div class="doc-row">
+            <!-- <div class="contacts-grid"> -->
+            <div class="doc-main-desc">
+              <div>
+                <h2 class="service-title">КОНТАКТИ FOCUS</h2>
+                <p class="doc-main-subtitle">Ми працюємо для вас — звертайтесь з будь-якими запитаннями щодо послуг, замовлень та консультацій</p>
+
+                <ul class="services-list">
+                  <li class="doc-item">Подряпини та заломи</li>
+                  <!-- <li class="doc-item">Плями та вигоряння</li> -->
+                  <!-- <li class="doc-item">Вицвілі кольори</li> -->
+                  <li class="doc-item">Розмитість та втрату чіткості</li>
+                  <li class="doc-item">Пошкоджені краї фото</li>
+                </ul>
+              </div>
+
+              <div class="doc-meta" aria-label="Умови послуги">
+                <span class="doc-chip doc-chip--price">від 6 грн / шт</span>
+                <span class="doc-chip doc-chip--time">5–15 хв</span>
+                <span class="doc-chip doc-chip--file">з телефону / флешки</span>
+              </div>
+
+            </div>
+            <div class="doc-row-media">
+              <img src="/images/contacts.jpg" alt="Реставрація фото: до та після"  loading="lazy" width="500" height="310"/>
+            </div>
+          </div> 
+
+        </section>
+        <div class="main-page-line"></div>
+
+    <section class="doc-info">
+      <div class="contacts-grid">
+      <!-- LEFT -->
+      <div class="doc-main-desc">
+        <section class="card card-pad">
+          <h2 class="contacts-title">Фотостудія Focus</h2>
+          <p class="contacts-sub">Кривий Ріг, Соборності 39</p>
+
+          <ul class="contacts-list">
+            <li class="contacts-item">
+              <span class="contacts-ico" aria-hidden="true">☎</span>
+              <div>
+                <div class="contacts-item-label">Телефон</div>
+                <a class="contacts-item-value" href="tel:+380XXXXXXXXX">+38 (0XX) XXX-XX-XX</a>
+                <span class="contacts-item-hint">Дзвінки / Viber / Telegram</span>
+              </div>
+            </li>
+
+            <li class="contacts-item">
+              <span class="contacts-ico" aria-hidden="true">⏰</span>
+              <div>
+                <div class="contacts-item-label">Графік роботи</div>
+                <div class="contacts-item-value">Пн–Сб: 9:00–18:00</div>
+                <span class="contacts-item-hint">Нд — за домовленістю</span>
+              </div>
+            </li>
+
+            <li class="contacts-item">
+              <span class="contacts-ico" aria-hidden="true">📍</span>
+              <div>
+                <div class="contacts-item-label">Адреса</div>
+                <div class="contacts-item-value">Кривий Ріг, Соборності 39</div>
+                <a class="contacts-item-link" href="https://maps.app.goo.gl/hbcX6rQR7ZqYAYve7" target="_blank" rel="noopener">
+                  Відкрити на Google Maps
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <div class="doc-meta" aria-label="Переваги">            
+            <span class="doc-chip">якісно</span>
+            <span class="doc-chip">за стандартами</span>
+            <span class="doc-chip">без черг</span>            
+          </div>
+
+
+        </section>
+
+          <div class="contacts-note">
+            <strong>Порада:</strong> якщо фото важливе — краще приносити оригінал з телефону/камери,
+            а не «переслане» в месенджері.
+          </div>
+
+
+        </div>
+      
+
+      <!-- RIGHT -->
+      <div class="doc-main-desc">
+        <section class="card map" aria-label="Мапа">
+          <!-- Встав свій iframe з Google Maps (точний) -->
+          <!-- <iframe
+            title="Мапа: Фотостудія Focus"
+            src="https://www.google.com/maps?q=Kryvyi%20Rih%20Sobornosti%2039&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe> -->
+
+          <iframe title="Мапа: Фотостудія Focus" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4498.551823584375!2d33.40060439371938!3d47.90049331971347!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40db20c6459ad423%3A0x9caebc297386273!2z0KTQvtGC0L7RgdGC0YPQtNGW0Y8gRm9jdXM!5e0!3m2!1sru!2sua!4v1772461491185!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          <!-- <iframe
+            width="100%"
+            height="420"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            src="https://www.google.com/maps/embed/v1/view?key=YOUR_API_KEY&center=47.9100,33.3910&zoom=18">
+          </iframe> -->
+        </section>
+        <!-- href="https://maps.app.goo.gl/hbcX6rQR7ZqYAYve7" -->
+
+        <!-- <div class="actions">
+          <a class="btn btn-primary" href="tel:+380XXXXXXXXX">Подзвонити</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps" target="_blank" rel="noopener">Відкрити карту</a>
+
+          <a class="btn btn-ghost" href="https://maps.app.goo.gl/hbcX6rQR7ZqYAYve7" target="_blank" rel="noopener noreferrer">Відкрити карту</a>
+        </div> -->
+
+        <section class="card card-pad">
+          <h3 class="mini-title">Як нас знайти</h3>
+          <ul class="services-list">
+            <li class="doc-item">Вхід з фасаду, орієнтир — вивіска “FOCUS”</li>
+            <li class="doc-item">Можна зайти без запису</li>
+            <li class="doc-item">На місці підкажемо формат і точну ціну</li>
+          </ul>
+        </section>
+      </div>
+      
+    </section>
+
+
+    
+<section class="why">
+  <div class="why-header">
+    <h2 class="why-title">ЧОМУ ОБИРАЮТЬ НАС</h2>
+    <div class="why-line"></div>
+  </div>
+
+  <div class="why-row">
+    <article class="why-card">
+      <div class="why-ico why-ico--rules" aria-hidden="true"></div>
+      <div class="why-card-title">Все в одному місці</div>
+      <div class="why-card-sub">(документи / реставрація / друк)</div>
+
+      <div class="why-meta">
+        <span class="doc-chip doc-chip--file">3 послуги в студії</span>
+      </div>
+    </article>
+
+    <article class="why-card">
+      <div class="why-ico why-ico--print" aria-hidden="true"></div>
+      <div class="why-card-title">Якість файлу</div>
+      <div class="why-card-sub">(контроль перед друком)</div>
+
+      <div class="why-meta">
+        <span class="doc-chip doc-chip--file">перевірка + підготовка</span>
+      </div>
+    </article>
+
+    <article class="why-card">
+      <div class="why-ico why-ico--fast" aria-hidden="true"></div>
+      <div class="why-card-title">Швидкий сервіс</div>
+      <div class="why-card-sub">(без зайвих очікувань)</div>
+
+      <div class="why-meta">
+        <span class="doc-chip doc-chip--time">оперативно по місцю</span>
+      </div>
+    </article>
+  </div>
+
+  <div class="why-cta">
+    <div class="why-cta-text">Зателефонуйте або напишіть у Viber/Telegram</div>
+    <div class="why-cta-icons" aria-hidden="true">
+      <span class="why-app why-app--viber"></span>
+      <span class="why-app why-app--tg"></span>
+    </div>
+  </div>
+</section>
+
+<script type="application/json" id="docs-data" set:html={JSON.stringify(docs)}></script>
+
+</div>
+
+
+
+
+  
+</BaseLayout>
+
+

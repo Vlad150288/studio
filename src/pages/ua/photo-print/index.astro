@@ -1,0 +1,508 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { servicess } from "../../../data/services";
+
+
+const lang = "ua";
+const docs = servicess.documents;
+
+const formats = [
+  { name: "10×15", note: "Класичний формат", price: "від 6 грн / шт" },
+  { name: "13×18", note: "Трохи більше деталей", price: "від 12 грн / шт" },
+  { name: "15×21", note: "Для альбомів / рамок", price: "від 18 грн / шт" },
+  { name: "21×30", note: "Колаж / плакат", price: "від 45 грн / шт" },
+  { name: "Інші формати", note: "Під замовлення", price: "уточнюйте" },
+];
+
+const examples = [
+  { title: "10×15 — глянець", img: "/images/print-ex-1.jpg" },
+  { title: "10×15 — мат", img: "/images/print-ex-2.jpg" },
+  { title: "15×21 — насичені кольори", img: "/images/print-ex-3.jpg" },
+  { title: "Колаж на 21×30", img: "/images/print-ex-4.jpg" },
+];
+
+const faq = [
+  {
+    q: "Звідки можна надрукувати фото?",
+    a: "З телефону (галерея) або з флешки. Якщо фото у Viber/Telegram — краще зберегти в галерею, щоб не втрачалася якість.",
+  },
+  {
+    q: "Чи робите корекцію перед друком?",
+    a: "Так, за потреби підкоригуємо яскравість/контраст і підкажемо, якщо фото занадто темне або має дивний відтінок.",
+  },
+  {
+    q: "Скільки часу займає друк?",
+    a: "Зазвичай 5–15 хвилин (залежить від кількості та формату).",
+  },
+  {
+    q: "Який папір краще — мат чи глянець?",
+    a: "Глянець — більш яскраві кольори, мат — менше відблисків і «спокійніший» вигляд. Підкажемо на місці.",
+  },
+];
+---
+
+<BaseLayout title="Друк фотографій — Focus">
+  <div class="doc-page print-page">
+    <!-- HERO -->
+    <section class="doc-info">
+      <div class="doc-row" data-title="Друк фотографій">
+        <div class="doc-main-desc">
+          <div>
+            <h2 class="service-title">ДРУК ФОТОГРАФІЙ</h2>
+
+            <p class="doc-main-subtitle">
+              Друк фото на якісному фотопапері. Мат / глянець. Підготовка та корекція за потреби.
+            </p>
+
+            <ul class="services-list">
+              <li class="doc-item">Професійний фотопапір: матовий або глянцевий</li>
+              <li class="doc-item">Популярні формати: 10×15, 13×18, 15×21, 21×30</li>
+              <li class="doc-item">Корекція яскравості/контрасту за потреби</li>
+              <!-- <li class="doc-item">Друк з телефону або з флешки (в студії)</li> -->
+            </ul>
+
+          </div>
+
+          <div class="doc-meta" aria-label="Умови послуги">
+            <span class="doc-chip doc-chip--price">від 12 грн / шт</span>
+            <!-- <span class="doc-chip doc-chip--time">5–15 хв</span> -->
+            <span class="doc-chip doc-chip--file">з телефону / флешки</span>
+          </div>
+
+          <!-- Можно сделать кнопкой/ссылкой на контакты или скролл к ценам -->
+          <!-- <a class="doc-more" href="#formats">
+            <span class="doc-more__label">Переглянути</span>
+            <span class="doc-more__text">формати та ціни</span>
+          </a> -->
+        </div>
+
+        <div class="doc-row-media">
+          <img src="/images/print.jpg" alt="Друк фотографій" loading="lazy" width="400" height="310"/>
+        </div>
+      </div>
+    </section>
+
+    <div class="main-page-line"></div>
+
+ 
+
+    <section class="doc-info-restore">
+
+    <h2 class="doc-block-title" id="formats">ФОРМАТИ ТА ЦІНИ</h2>
+    <p class="doc-lead how-rest__lead">
+      Орієнтовні ціни по популярних форматах. Точну вартість скажемо на місці — залежить від кількості та формату.
+    </p>
+
+  <div class="print-prices__note">
+    <span class="print-note__label">Порада:</span>
+    якщо фото важливе — краще приносити оригінал з телефону/камери, а не «переслане» в месенджері.
+  </div>
+
+  <div class="print-table">
+    <div class="print-table__head">
+      <div class="print-th">Формат</div>
+      <div class="print-th">1–49</div>
+      <div class="print-th">50–99</div>
+      <div class="print-th">100–199</div>
+      <div class="print-th">200+</div>
+    </div>
+
+    <!-- row -->
+    <div class="print-row">
+      <div class="print-td print-td--left">
+        <div class="print-format">10×15</div>
+        <!-- <div class="print-sub">Класичний формат</div> -->
+      </div>
+      <div class="print-td">від 8 грн</div>
+      <div class="print-td">від 7 грн</div>
+      <div class="print-td">від 6 грн</div>
+      <div class="print-td print-td--accent">від 5 грн</div>
+    </div>
+
+    <div class="print-row">
+      <div class="print-td print-td--left">
+        <div class="print-format">13×18</div>
+        <!-- <div class="print-sub">Трохи більше деталей</div> -->
+      </div>
+      <div class="print-td">від 14 грн</div>
+      <div class="print-td">від 13 грн</div>
+      <div class="print-td">від 12 грн</div>
+      <div class="print-td print-td--accent">від 11 грн</div>
+    </div>
+
+    <div class="print-row">
+      <div class="print-td print-td--left">
+        <div class="print-format">15×21</div>
+        <!-- <div class="print-sub">Для альбомів / рамок</div> -->
+      </div>
+      <div class="print-td">від 20 грн</div>
+      <div class="print-td">від 19 грн</div>
+      <div class="print-td">від 18 грн</div>
+      <div class="print-td print-td--accent">від 17 грн</div>
+    </div>
+
+    <div class="print-row">
+      <div class="print-td print-td--left">
+        <div class="print-format">21×30</div>
+        <!-- <div class="print-sub">Колаж / плакат</div> -->
+      </div>
+      <div class="print-td">від 55 грн</div>
+      <div class="print-td">від 50 грн</div>
+      <div class="print-td">від 45 грн</div>
+      <div class="print-td print-td--accent">від 40 грн</div>
+    </div>
+
+    <div class="print-table__foot">
+      * Точна ціна залежить від паперу (мат/глянець), корекції та якості файлу.
+    </div>
+  </div>
+
+  <div class="print-mini">
+    <div class="print-mini__card">
+      <div class="print-mini__title">Поверхня</div>
+      <div class="print-mini__desc">мат / глянець</div>
+    </div>
+
+    <div class="print-mini__card">
+      <div class="print-mini__title">Кількість</div>
+      <div class="print-mini__desc">чим більше — тим вигідніше</div>
+    </div>
+
+    <div class="print-mini__card">
+      <div class="print-mini__title">Підготовка</div>
+      <div class="print-mini__desc">корекція за потреби</div>
+    </div>
+  </div>
+
+  <div class="print-cta">
+    <div class="print-cta__text">
+      Потрібно надрукувати багато фото? Підкажемо оптимальний формат і папір.
+    </div>
+    <a class="print-cta__btn" href="/ua/contacts/">Контакти</a>
+  </div>
+</section>
+
+<!-- 
+
+    <section class="doc-info print-formats">
+      <div class="print-note">
+        <strong>Порада:</strong> якщо фото важливе — краще приносити оригінал з телефону/камери, а не «переслане» в месенджері.
+      </div>
+
+      <div class="print-format-list" role="list">
+        {formats.map((f) => (
+          <div class="print-format" role="listitem">
+            <div class="print-format__left">
+              <div class="print-format__name">{f.name}</div>
+              <div class="print-format__note">{f.note}</div>
+            </div>
+            <div class="print-format__price">{f.price}</div>
+          </div>
+        ))}
+      </div>
+
+      <div class="print-mini">
+        <div class="print-mini__item">
+          <div class="print-mini__title">Поверхня</div>
+          <div class="print-mini__text">Мат / глянець</div>
+        </div>
+        <div class="print-mini__item">
+          <div class="print-mini__title">Кількість</div>
+          <div class="print-mini__text">чим більше — тим швидше вибір</div>
+        </div>
+        <div class="print-mini__item">
+          <div class="print-mini__title">Підготовка</div>
+          <div class="print-mini__text">корекція за потреби</div>
+        </div>
+      </div>
+      <div class="print-cta">
+        <div class="print-cta__text">
+          Потрібно надрукувати багато фото? Підкажемо оптимальний формат і папір.
+        </div>
+        <a class="print-cta__btn" href="/ua/contacts/">Контакти</a>
+      </div>
+    </section> -->
+
+    <!-- <div class="main-page-line"></div> -->
+
+    <!-- EXAMPLES -->
+    <!-- <h2 class="doc-block-title">ПРИКЛАДИ ДРУКУ</h2>
+    <p class="doc-lead how-rest__lead">Кілька прикладів, як виглядають формати та поверхні.</p>
+
+    <section class="doc-info">
+      <div class="print-examples">
+        {examples.map((ex) => (
+          <figure class="print-example">
+            <div class="print-example__media">
+              <img src={ex.img} alt={ex.title} loading="lazy" />
+              <div class="print-example__tag">{ex.title}</div>
+            </div>
+          </figure>
+        ))}
+      </div>
+
+      <div class="print-cta">
+        <div class="print-cta__text">
+          Потрібно надрукувати багато фото? Підкажемо оптимальний формат і папір.
+        </div>
+        <a class="print-cta__btn" href="/ua/contacts/">Контакти</a>
+      </div>
+    </section> -->
+
+    <!-- <section class="doc-info print-formats"> -->
+
+    <!-- </section> -->
+
+
+
+    <div class="main-page-line"></div>
+
+    <!-- HOW IT WORKS (timeline in your style) -->
+    <!-- <h2 class="doc-block-title">ЯК ЦЕ ВІДБУВАЄТЬСЯ</h2>
+    <p class="doc-lead how-rest__lead">Простий процес: ви приносите фото → ми підбираємо формат → друкуємо → ви забираєте.</p>
+
+    <section class="doc-info how-rest">
+      <div class="doc-row">
+        <div class="doc-main-desc how-rest__left">
+          <div class="how-rest__title">ЕТАПИ РОБОТИ</div>
+
+          <ul class="services-list how-rest__mini">
+            <li class="doc-item">Можна з телефону або флешки</li>
+            <li class="doc-item">Підкажемо мат/глянець</li>
+            <li class="doc-item">Корекція за потреби</li>
+          </ul>
+        </div>
+
+        <div class="how-rest__right">
+          <div class="how-rest__steps">
+            <div class="how-rest__step">
+              <div class="how-rest__num">1</div>
+              <div>
+                <div class="how-rest__step-title">Приносите фото</div>
+                <div class="how-rest__step-desc">Телефон / флешка. Перевіримо якість файлу.</div>
+              </div>
+            </div>
+
+            <div class="how-rest__step">
+              <div class="how-rest__num">2</div>
+              <div>
+                <div class="how-rest__step-title">Обираємо формат і папір</div>
+                <div class="how-rest__step-desc">10×15, 13×18, 15×21, 21×30 Мат або глянець.</div>
+              </div>
+            </div>
+
+            <div class="how-rest__step">
+              <div class="how-rest__num">3</div>
+              <div>
+                <div class="how-rest__step-title">Корекція (за потреби)</div>
+                <div class="how-rest__step-desc">Акуратно підкоригуємо яскравість/контраст, якщо треба.</div>
+              </div>
+            </div>
+
+            <div class="how-rest__step">
+              <div class="how-rest__num">4</div>
+              <div>
+                <div class="how-rest__step-title">Друкуємо і видаємо</div>
+                <div class="how-rest__step-desc">Зазвичай 5–15 хвилин, залежить від кількості.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="how-rest__note">
+            💡 Якщо фото дуже темне або «жовтить» — краще одразу сказати, ми підкоригуємо перед друком.
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+  <section class="doc-info how-rest">
+  <div class="doc-header">
+    <h2 class="doc-block-title">ЯК ЦЕ ВІДБУВАЄТЬСЯ</h2>
+    <!-- <div class="doc-line"></div> -->
+      <!-- <div class="main-page-line"></div> -->
+    <p class="doc-lead how-rest__lead">
+      Простий процес: ви приносите фото → ми підбираємо формат → друкуємо → ви забираєте.
+    </p>
+  </div>
+
+  <div class="how-rest__row">
+    <!-- LEFT (25%) -->
+    <div class="doc-main-desc how-rest__left">
+      <h3 class="service-title how-rest__title">Етапи роботи</h3>
+      <p class="doc-main-subtitle how-rest__sub">
+        Оцінка займає 3–5 хв. Остаточну ціну скажемо після огляду фото.
+      </p>
+
+      <ul class="services-list how-rest__mini">
+        <li class="doc-item">Замовлення можно прийняти з телефону або флешки</li>
+        <li class="doc-item">Підкажемо тип бумаги мат/глянець</li>
+        <li class="doc-item">Корекція кольору, яркості і контрасту за потреби</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT (75%) -->
+    <div class="doc-desc how-rest__right">
+      <div class="how-rest__steps">
+
+        <div class="how-rest__step">
+          <div class="how-rest__num">1</div>
+          <div class="how-rest__text">
+            <div class="how-rest__step-title">Приносите фото</div>
+            <div class="how-rest__step-desc">
+              Телефон / флешка. Перевіримо якість файлу.
+            </div>
+          </div>
+        </div>
+
+        <div class="how-rest__step">
+          <div class="how-rest__num">2</div>
+          <div class="how-rest__text">
+            <div class="how-rest__step-title">Обираємо формат і папір</div>
+            <div class="how-rest__step-desc">
+              10×15, 13×18, 15×21, 21×30 Мат або глянець.
+            </div>
+          </div>
+        </div>
+
+        <div class="how-rest__step">
+          <div class="how-rest__num">3</div>
+          <div class="how-rest__text">
+            <div class="how-rest__step-title">Корекція (за потреби)</div>
+            <div class="how-rest__step-desc">
+              Акуратно підкоригуємо яскравість/контраст, якщо треба.
+            </div>
+          </div>
+        </div>
+
+        <div class="how-rest__step">
+          <div class="how-rest__num">4</div>
+          <div class="how-rest__text">
+            <div class="how-rest__step-title">Друкуємо і видаємо</div>
+            <div class="how-rest__step-desc">
+              Зазвичай 5–15 хвилин, залежить від кількості.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+    <!-- <div class="main-page-line"></div> -->
+
+    <!-- WHY (same as home, but optional) -->
+    <!-- <section class="why why--compact">
+      <div class="why-header">
+        <h2 class="why-title">ЧОМУ ОБИРАЮТЬ НАС</h2>
+        <div class="why-line"></div>
+      </div>
+
+      <div class="why-row">
+        <article class="why-card">
+          <div class="why-ico why-ico--fast" aria-hidden="true"></div>
+          <div class="why-card-title">Швидко</div>
+          <div class="why-card-sub">(5–15 хв)</div>
+          <div class="why-meta">
+            <span class="doc-chip doc-chip--time">5–15 хв</span>
+          </div>
+        </article>
+
+        <article class="why-card">
+          <div class="why-ico why-ico--print" aria-hidden="true"></div>
+          <div class="why-card-title">Якісно</div>
+          <div class="why-card-sub">(папір / кольори)</div>
+          <div class="why-meta">
+            <span class="doc-chip doc-chip--file">мат / глянець</span>
+          </div>
+        </article>
+
+        <article class="why-card">
+          <div class="why-ico why-ico--rules" aria-hidden="true"></div>
+          <div class="why-card-title">Зручно</div>
+          <div class="why-card-sub">(телефон / флешка)</div>
+          <div class="why-meta">
+            <span class="doc-chip doc-chip--file">з телефону / флешки</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="why-cta">
+        <div class="why-cta-text">Зателефонуйте або напишіть у Viber/Telegram</div>
+        <div class="why-cta-icons" aria-hidden="true">
+          <span class="why-app why-app--viber"></span>
+          <span class="why-app why-app--tg"></span>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- FAQ (simple) -->
+    <section class="doc-info print-faq">
+      <h2 class="doc-block-title">ПИТАННЯ ТА ВІДПОВІДІ</h2>
+
+      <div class="faq">
+        {faq.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-q">{item.q}</summary>
+            <div class="faq-a">{item.a}</div>
+          </details>
+        ))}
+      </div>
+
+    </section>
+
+
+    <section class="why">
+  <div class="why-header">
+    <h2 class="why-title">ЧОМУ ОБИРАЮТЬ НАС</h2>
+    <div class="why-line"></div>
+  </div>
+
+  <div class="why-row">
+    <article class="why-card">
+      <div class="why-ico why-ico--print" aria-hidden="true"></div>
+      <div class="why-card-title">Фотопапір</div>
+      <div class="why-card-sub">(мат / глянець)</div>
+
+      <div class="why-meta">
+        <span class="doc-chip doc-chip--file">під формат</span>
+      </div>
+    </article>
+
+    <article class="why-card">
+      <div class="why-ico why-ico--rules" aria-hidden="true"></div>
+      <div class="why-card-title">Корекція за потреби</div>
+      <div class="why-card-sub">(яскравість/контраст)</div>
+
+      <div class="why-meta">
+        <span class="doc-chip doc-chip--file">акуратно, без “пережару”</span>
+      </div>
+    </article>
+
+    <article class="why-card">
+      <div class="why-ico why-ico--fast" aria-hidden="true"></div>
+      <div class="why-card-title">Швидкий друк</div>
+      <div class="why-card-sub">(від 5 хв)</div>
+
+      <div class="why-meta">
+        <span class="doc-chip doc-chip--time">партіями вигідніше</span>
+      </div>
+    </article>
+  </div>
+
+  <div class="why-cta">
+    <div class="why-cta-text">Зателефонуйте або напишіть у Viber/Telegram</div>
+    <div class="why-cta-icons" aria-hidden="true">
+      <span class="why-app why-app--viber"></span>
+      <span class="why-app why-app--tg"></span>
+    </div>
+  </div>
+</section>
+
+    <script type="application/json" id="docs-data" set:html={JSON.stringify(docs)}></script>
+
+  </div>
+</BaseLayout>

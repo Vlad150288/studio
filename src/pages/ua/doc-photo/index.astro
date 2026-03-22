@@ -1,0 +1,252 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { servicess } from "../../../data/services";
+
+const lang = "ua";
+const docs = servicess.documents;
+
+// const docsArr = []
+
+// for (const key in docs) {
+//   const typedKey = key as keyof typeof docs
+//   docsArr.push(docs[typedKey])
+// }
+
+const docsArr = Object.values(docs)
+console.log(docsArr)
+
+
+
+const lead =
+  "Термінове фото на документи за 10–15 хвилин. Ви зможете отримати фото на паспорт, права, шенгенську візу, грін карту США (green card USA), дитячий біометричний паспорт та інші документи, у кольоровому або чорно-білому варіанті, на матовому або глянцевому фотопапері, відповідно до Ваших бажань або вимог інстанції. Кількість зображень на блоці залежить від розміру потрібної фотографії. Нижче ми наводимо найбільш затребувані.";
+---
+
+<BaseLayout title="Фото на документи — Focus">
+  <div class="doc-page">
+<section class="doc-info">
+  <div class="doc-row doc-hero" data-title={docsArr[0].title[lang]}>
+    <div class="doc-main-desc">
+      <div>
+      <h1 class="service-title">ФОТО НА ДОКУМЕНТИ</h1>
+
+      <!-- <p class="doc-main-subtitle">
+        Зробимо фото під вимоги документа та одразу підготуємо до друку / на телефон
+      </p> -->
+      <p class="doc-main-subtitle">
+        Зробимо фото під вимоги документа та підготуємо до друку
+      </p>
+
+      <ul class="services-list">
+        <!-- <li class="doc-item">Під вимоги ДМС, віз, Green Card та інших форматів</li> -->
+        <li class="doc-item">Під вимоги ДМС, віз, Green Card та інших форматів</li>
+        <li class="doc-item">Перевіряємо кадрування та розмір обличчя (70–80%)</li>
+        <li class="doc-item">Вирівнюємо фон і робимо акуратну ретуш за потреби</li>
+        <li class="doc-item">Можемо підставити костюм / військову / поліцейську форму</li>
+      </ul>
+      </div>
+
+      <div class="doc-meta" aria-label="Умови послуги">
+        <span class="doc-chip doc-chip--price">від 150 грн</span>
+        <span class="doc-chip doc-chip--time">10–15 хв</span>
+        <span class="doc-chip doc-chip--file">файл на телефон / друк</span>
+      </div>
+
+    </div>
+
+    <div class="doc-row-media">
+      <img src="/images/111.jpg" alt={docsArr[0].title[lang]} height="345" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+    <div class="main-page-line"></div>
+
+<section class="doc-info-restore">
+
+  <h2 class="doc-block-title" id="sizes">ПОПУЛЯРНІ РОЗМІРИ ФОТО</h2>
+  <p class="doc-lead how-rest__lead">
+    Оберіть формат зліва, щоб переглянути вимоги та ціни. За потреби — порахуйте вартість у калькуляторі.
+  </p>
+
+  <!-- Плашки-подсказки (дорого смотрятся) -->
+  <div class="doc-hints" aria-label="Підказки">
+    <!-- <div class="doc-hint">
+      <b>Порада:</b> якщо не впевнені у форматі — ми підкажемо на місці та перевіримо вимоги.
+    </div> -->
+
+    <div class="doc-hint doc-hint--soft">
+      <b>Гарантія:</b> кадрування, фон і розмір обличчя — під офіційні стандарти документа.
+    </div>
+  </div>
+
+  <div class="doc-popular-cont">
+    <h3 class="modal-title">Оберіть потрібний комплект</h3>
+    <div class="docs-list docs-list--premium">
+      {docsArr.map((item, index) => (
+        <div          
+          class={`doc-button ${index === 0 ? "doc-active" : ""}`}
+          data-id={item.id}
+          data-lang={lang}
+        >
+          <span class="doc-button__name">{item.title[lang]}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="doc-photo-cont" data-title={docsArr[0].title[lang]}>
+
+      <div class="doc-popular-image">
+        <div class="txt-desc">600x600</div>
+        <img src={docsArr[0].image} alt={docsArr[0].title[lang]} loading="lazy" width="400" height="500"/>
+      </div>
+
+      <div class="doc-desc">
+        <div class="doc-desc-head">
+        <div class="doc-title">{docsArr[0].title[lang]}</div>
+
+        <hr />
+
+        <div>{docsArr[0].desc[lang]}</div>
+
+        <hr />
+
+
+        </div>
+
+        <div class="doc-price-small__row">
+          <span class="doc-price__label">{docsArr[0].prices.standard[lang]}</span>
+          <span class="doc-price__value">{docsArr[0].prices.standard.value} грн</span>
+        </div>
+
+
+
+      </div>
+
+        <div class="doc-price">
+          <div class="doc-price__row">
+            <span class="doc-price__label">{docsArr[0].prices.standard[lang]}</span>
+            <span class="doc-price__value">{docsArr[0].prices.standard.value} грн</span>
+          </div>
+          <!-- <button class="calc-price-btn" data-lang={lang}>Порахувати вартість</button>
+          <button class="calc-price-btn" data-lang={lang}>Зателефонуйте нам</button> -->
+
+          <div class="doc-calc-btns">
+            <button class="calc-price-btn" data-lang={lang}>Зателефонуйте</button>
+            <button class="calc-price-btn" data-lang={lang}>Порахувати</button>            
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<div class="main-page-line"></div>
+
+<section class="doc-info-restore">
+
+  <h2 class="doc-block-title" id="uniform">ПІДСТАВИМО КОСТЮМ АБО ФОРМУ</h2>
+  <p class="doc-lead how-rest__lead">
+    Акуратно підставимо костюм або форму. Підганяємо по світлу та тону, щоб виглядало природно.
+  </p>
+
+  <!-- аккуратные чипы -->
+  <div class="doc-meta-costume" aria-label="Умови послуги">
+    <div class="site-footer__contacts">
+      <span class="doc-item">Підбираємо форму під фото (тон / контраст)</span>
+      <span class="doc-item">Підганяємо по плечах та коміру</span>
+    </div>
+    <div class="site-footer__contacts">
+      <span class="doc-item">Не “пластик” — зберігаємо природність</span>
+      <span class="doc-item">Підганяємо по плечах та коміру</span>
+    </div>
+  </div>
+
+  <!-- мини-список (в твоём стиле) -->
+  <!-- <ul class="services-list doc-mini-list" aria-label="Що робимо">
+    <li class="doc-item">Підбираємо форму під фото (тон / контраст)</li>
+    <li class="doc-item">Підганяємо по плечах та коміру</li>
+    <li class="doc-item">Не “пластик” — зберігаємо природність</li>
+  </ul> -->
+
+  <div class="doc-uniform-grid doc-uniform-grid--premium">
+    <figure class="doc-uniform-card">
+      <img class="doc-uniform-img" src="/images/55.png" alt="Оригінал" width="140" height="200" />
+      <figcaption class="doc-uniform-cap">Оригінал</figcaption>
+    </figure>
+
+    <div class="doc-arrow" aria-hidden="true">➜</div>
+
+    <figure class="doc-uniform-card">
+      <img class="doc-uniform-img" src="/images/55.png" alt="Костюм" width="140" height="200" />
+      <figcaption class="doc-uniform-cap">Костюм</figcaption>
+    </figure>
+
+    <figure class="doc-uniform-card">
+      <img class="doc-uniform-img" src="/images/55.png" alt="Військова форма" width="140" height="200" />
+      <figcaption class="doc-uniform-cap">Військова форма</figcaption>
+    </figure>
+
+    <figure class="doc-uniform-card">
+      <img class="doc-uniform-img" src="/images/55.png" alt="Поліція" width="140" height="200" />
+      <figcaption class="doc-uniform-cap">Поліція</figcaption>
+    </figure>
+  </div>
+
+  <!-- заметка снизу (дорого) -->
+  <div class="doc-note">
+    <b>Важливо:</b> якщо фото вже зроблене — підберемо варіант під ваш документ та вимоги.
+  </div>
+</section>
+
+
+
+<section class="why">
+  <div class="why-header">
+    <h2 class="why-title">ЧОМУ ОБИРАЮТЬ НАС</h2>
+    <div class="why-line"></div>
+  </div>
+
+  <div class="why-row">
+    <article class="why-card">
+      <div class="why-ico why-ico--rules" aria-hidden="true"></div>
+      <div class="why-card-title">Під вимоги</div>
+      <div class="why-card-sub">(розмір / кадрування)</div>
+
+      <div class="why-meta">
+        <span class="doc-chip doc-chip--file">перевірка 70–80%</span>
+      </div>
+    </article>
+
+    <article class="why-card">
+      <div class="why-ico why-ico--fast" aria-hidden="true"></div>
+      <div class="why-card-title">Швидко в студії</div>
+      <div class="why-card-sub">(10–15 хв)</div>
+
+      <div class="why-meta">
+        <span class="doc-chip doc-chip--time">готово на місці</span>
+      </div>
+    </article>
+
+    <article class="why-card">
+      <div class="why-ico why-ico--print" aria-hidden="true"></div>
+      <div class="why-card-title">Файл або друк</div>
+      <div class="why-card-sub">(телефон / фотопапір)</div>
+
+      <div class="why-meta">
+        <span class="doc-chip doc-chip--file">на телефон / друк</span>
+      </div>
+    </article>
+  </div>
+
+  <div class="why-cta">
+    <div class="why-cta-text">Зателефонуйте або напишіть у Viber/Telegram</div>
+    <div class="why-cta-icons" aria-hidden="true">
+      <span class="why-app why-app--viber"></span>
+      <span class="why-app why-app--tg"></span>
+    </div>
+  </div>
+</section>
+
+
+    <script type="application/json" id="docs-data" set:html={JSON.stringify(docs)}></script>
+  </div>
+</BaseLayout>
